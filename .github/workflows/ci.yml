@@ -1,4 +1,4 @@
-name: MERN CI
+name: MERN CI new 
 
 on:
   push:
@@ -36,20 +36,30 @@ jobs:
         run: |
           npm install
           node seedTaskData.js
-  test: 
+
+  test:
     runs-on: ubuntu-latest
+    needs: mongo-init   
+
+    services:           
+      mongo:
+        image: mongo
+        ports:
+          - 27017:27017
 
     steps:
-      - name: Checkout Repositary
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      - name: Install Dependecies for backend 
-        run: npm install 
+      - name: Install Backend Dependencies
+        working-directory: ./backend
+        run: npm install
 
-      - name: Running Backend Tests
-        run:  npm test  
+      - name: Run Backend Tests
+        working-directory: ./backend
+        run: npm test
