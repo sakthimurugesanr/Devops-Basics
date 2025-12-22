@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>To-Do List with Devops-practice </h1>
+      <h1 style={{ color: "green" }}>To-Do List with Devops-practice </h1>
       <h1></h1>
       <input
         value={text}
