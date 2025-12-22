@@ -31,7 +31,8 @@ function App() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>To-Do List with Devops DB Test</h1>
+      <h1>To-Do List with Devops-practice </h1>
+      <h1></h1>
       <input
         value={text}
         onChange={e => setText(e.target.value)}
